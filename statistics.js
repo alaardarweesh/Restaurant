@@ -1,4 +1,5 @@
 'use strict';
+
 let allUsers = []
 function User(foodName, type, price) {
 
@@ -67,7 +68,7 @@ function handleSubmit(event) {
   newFood.foodIden();
   newFood.printInfo();
   saveData(); 
-  // getData();
+  getData();
 }
 
 
@@ -79,5 +80,9 @@ function saveData(){
 }
 
 saveData()
-
-
+function getData(){
+    let retrieveLs=localStorage.getItem("Users");
+    let retieveJson= JSON.parse(retrieveLs);
+    console.log(retieveJson);
+  }
+  getData();
