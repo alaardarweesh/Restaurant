@@ -1,5 +1,4 @@
 'use strict';
-
 let allUsers = []
 function User(foodName, type, price) {
 
@@ -43,46 +42,36 @@ User.prototype.printInfo = function () {
 
 
 
-for (var i = 0; i < allUsers.length; i++) {
-  allUsers[i].printInfo();
-  allUsers[i].foodIden();
-
-
-}
 
 
 
 
 
-let formsID = document.getElementById("formID");
-formsID.addEventListener("submit", handleSubmit);
-function handleSubmit(event) {
-  event.preventDefault();
 
-  let foodName = event.target.foodname.value;
-  let type = event.target.type.value;
-  let price = event.target.price.value;
+  
+  
 
 
-  let newFood = new User(foodName, type, price);
-  newFood.foodIden();
-  newFood.printInfo();
-  saveData(); 
-  getData();
-}
 
 
-function saveData(){
-  let stringData=JSON.stringify(allUsers);
- localStorage.setItem("Users",stringData);
- 
 
-}
-
-saveData()
 function getData(){
-    let retrieveLs=localStorage.getItem("Users");
-    let retieveJson= JSON.parse(retrieveLs);
-    console.log(retieveJson);
+  let retrieveLs=localStorage.getItem("Users");
+  let retieveJson= JSON.parse(retrieveLs);
+ 
+  for (var i=0;i<retieveJson.length;i++){
+    new User(retieveJson[i].foodName,retieveJson[i].type,retieveJson[i].price);
+
   }
-  getData();
+  
+for (var i = 0; i < allUsers.length; i++) {
+  allUsers[i].foodIden();
+  allUsers[i].printInfo();
+  
+
+
+}
+
+}
+
+getData();
