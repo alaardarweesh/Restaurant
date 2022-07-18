@@ -71,7 +71,7 @@ for (var i = 0; i < allUsers.length; i++) {
 
 
 }
-
+  
 }
 
 getData();
