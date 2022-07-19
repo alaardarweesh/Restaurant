@@ -15,15 +15,6 @@ User.prototype.foodIden = function () {
 }
 
 
-
-
-
-
-
-
-
-
-
 let formsID = document.getElementById("formID");
 formsID.addEventListener("submit", handleSubmit);
 function handleSubmit(event) {
@@ -36,7 +27,6 @@ function handleSubmit(event) {
 
   let newFood = new User(foodName, type, price);
   newFood.foodIden();
-  newFood.printInfo();
   saveData(); 
   
 }
@@ -70,3 +60,4 @@ function saveData(){
 
 // }
 // getData();
+ 
