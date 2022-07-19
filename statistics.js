@@ -15,8 +15,10 @@ User.prototype.foodIden = function () {
 }
 
 
-User.prototype.printInfo = function () {
 
+
+User.prototype.printInfo = function () {
+      
 
 
   const getTable = document.getElementById("myTable");
@@ -41,16 +43,21 @@ User.prototype.printInfo = function () {
 
 
 
+function getData(){
+  let retrieveLs=localStorage.getItem("Users");
+  let retieveJson= JSON.parse(retrieveLs);
+ 
+  for (var i=0;i<retieveJson.length;i++){
+    new User(retieveJson[i].foodName,retieveJson[i].type,retieveJson[i].price);
 
-
-
-
-
-
-
+  }
   
-  
+for (var i = 0; i < allUsers.length; i++) {
+  allUsers[i].printInfo();
+}
 
+}
+getData();
 
 
 
@@ -67,11 +74,9 @@ function getData(){
 for (var i = 0; i < allUsers.length; i++) {
   allUsers[i].foodIden();
   allUsers[i].printInfo();
-  
-
-
 }
-  
+
+
 }
 
 getData();
